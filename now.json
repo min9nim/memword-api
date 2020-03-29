@@ -1,9 +1,21 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "package.json",
-            "use": "@now/next"
-        }
-    ]
+  "public": true,
+  "version": 2,
+  "builds": [{"src": "src/**/*.js", "use": "@now/node@canary"}],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "src/app.js",
+      "methods": ["POST", "OPTIONS", "GET", "DELETE", "PUT"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  ],
+  "github": {
+    "autoJobCancelation": false
+  },
+  "env": {
+    "dburl": "@sharelink-dburl"
+  }
 }

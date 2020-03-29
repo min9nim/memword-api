@@ -1,6 +1,6 @@
 // const express = require("express");
 const { OAuth2Client } = require('google-auth-library')
-const User = require('../models/user')
+const User = require('./models/user')
 const { isExpired } = require('./com')
 const shortid = require('shortid')
 
@@ -42,8 +42,6 @@ const auth = async (req, res, next) => {
         throw e
       }
     }
-
-    //console.log(JSON.stringify(payload, null, 2))
 
     const { iss, sub, email, given_name, picture, exp } = payload
 

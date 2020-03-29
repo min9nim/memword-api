@@ -1,11 +1,10 @@
 const express = require('express')
 const shortid = require('shortid')
+const webscrap = require('./com/webcrawler')
+const translate = require('./com/translate')
+const Word = require('./models/word')
 
-const webscrap = require('../src/com/webcrawler')
-const translate = require('../src/com/translate')
-const Word = require('../src/model/word')
-
-const { sendErr } = require('../src/com/com')
+const { sendErr } = require('./com/com')
 const request = require('request')
 
 const apiRouter = express.Router()
