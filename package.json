@@ -1,0 +1,34 @@
+{
+  "name": "memword-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "devmon": "nodemon server.js",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "keywords": [],
+  "author": "mg.song",
+  "license": "MIT",
+  "dependencies": {
+    "base64-js": "^1.3.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "google-auth-library": "^2.0.2",
+    "isomorphic-unfetch": "^3.0.0",
+    "mobx": "^5.8.0",
+    "moment": "^2.23.0",
+    "mongoose": "^5.3.15",
+    "crawler": "^1.2.1",
+    "ramda": "^0.26.1",
+    "request": "^2.88.0",
+    "shortid": "^2.2.14"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "backend/*"
+    ]
+  }
+}
