@@ -3,9 +3,12 @@ const shortid = require('shortid')
 const webscrap = require('./com/webcrawler')
 // const translate = require('./com/translate')
 const Word = require('./models/word')
+const { default: createLogger } = require('if-logger')
 
 const { sendErr } = require('./com/com')
 const request = require('request')
+
+const logger = createLogger()
 
 const apiRouter = express.Router()
 module.exports = apiRouter
@@ -45,8 +48,10 @@ apiRouter.get('/proxy', async (req, res) => {
 // 내가 찾은 단어 목록
 apiRouter.get('/list', async function(req, res) {
   try {
+    logger.verbose('/list')
     let list
     if (req.isLogin) {
+      logger.verbose('/list', 'signed')
       list = await Word.find(
         { userId: req.user.id },
         { __v: 0, _id: 0 },
@@ -55,7 +60,7 @@ apiRouter.get('/list', async function(req, res) {
     } else {
       list = []
     }
-    //console.log("@@ list  = " + list);
+    // logger.verbose('list:', list)
 
     res.set('Content-Type', 'application/json').send({ list })
   } catch (e) {

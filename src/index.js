@@ -1,7 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const apiRouter = require('./api-router')
-const auth = require('./auth')
+const auth = require('./com/auth')
+const {createContext} = require('./com/com')
 const cookieParser = require('cookie-parser')
 
 const server = express()
@@ -11,6 +12,8 @@ server.use(cookieParser())
 
 // body 파서
 server.use(bodyParser.json())
+
+server.use(createContext)
 
 // 인증체크
 server.use('/api', auth)

@@ -1,6 +1,6 @@
 // const express = require("express");
 const { OAuth2Client } = require('google-auth-library')
-const User = require('./models/user')
+const User = require('../models/user')
 const { isExpired } = require('./com')
 const shortid = require('shortid')
 
@@ -9,17 +9,13 @@ const CLIENT_ID =
 const client = new OAuth2Client(CLIENT_ID)
 
 const auth = async (req, res, next) => {
+  const logger = req.ctx.logger.addTags('auth')
   try {
-    // console.log("@@ auth 미들웨어 시작")
-    //console.log("req.originalUrl = " + req.originalUrl);
-    //console.log("req.path = " + req.path);
     const token = req.headers['x-access-token']
-    // console.log("@@11 token = " + token);
-    if (token === 'undefined') {
+    if (!token) {
       throw Error('Request has no token')
     }
-
-    // console.log("@@22 token = " + token)
+    logger.verbose('token:', token)
 
     let payload
     try {
@@ -74,13 +70,11 @@ const auth = async (req, res, next) => {
     }
 
     req.isLogin = true
-    console.log(req.method + ' ' + req.originalUrl + ' : 토큰검증 성공')
+    logger.verbose('토큰검증 성공')
     //console.log("req.originalUrl = " + req.originalUrl);
   } catch (e) {
     // console.log(e);
-    console.log(
-      req.method + ' ' + req.originalUrl + ' : 토큰검증 실패 : ' + e.message,
-    )
+    logger.error('토큰검증실패', e)
     req.isLogin = false
   }
 
