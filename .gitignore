@@ -2,3 +2,4 @@ node_modules
 .vscode
 word-trans.json
 .DS_Store
+dev-start.sh

@@ -1,6 +1,6 @@
-import { isExpired } from "../src/com/pure";
+const { isExpired } = require("./com/pure")
 
-export default function getAuth(app) {
+module.exports = function getAuth(app) {
     return {// 로그인 관련
         init: () => {
             if (global.location && !global.GoogleAuth && app.router.asPath !== "/login") {

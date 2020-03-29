@@ -1,7 +1,7 @@
 const express = require('express')
 const shortid = require('shortid')
 const webscrap = require('./com/webcrawler')
-const translate = require('./com/translate')
+// const translate = require('./com/translate')
 const Word = require('./models/word')
 
 const { sendErr } = require('./com/com')
@@ -22,16 +22,16 @@ apiRouter.get('/word/:word', function(req, res) {
   }
 })
 
-// 문장검색
-apiRouter.get('/words/:words', function(req, res) {
-  try {
-    translate(req.params.words).then(result => {
-      res.send({ result })
-    })
-  } catch (e) {
-    sendErr(res)(e)
-  }
-})
+// // 문장검색
+// apiRouter.get('/words/:words', function(req, res) {
+//   try {
+//     translate(req.params.words).then(result => {
+//       res.send({ result })
+//     })
+//   } catch (e) {
+//     sendErr(res)(e)
+//   }
+// })
 
 // 이미지 프록시
 apiRouter.get('/proxy', async (req, res) => {

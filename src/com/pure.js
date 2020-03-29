@@ -1,5 +1,5 @@
 
-export function _findLink(links, linkID) {
+module.exports._findLink = (links, linkID) => {
     let link;
     for (let l of links) {
         if (l.id === linkID) {
@@ -18,13 +18,13 @@ export function _findLink(links, linkID) {
     return link;
 }
 
-export function _getHostname(url){
+module.exports._getHostname = (url) => {
     let start = url.indexOf("://") + 3;
     let end = url.indexOf("/", start)
     return url.slice(start, end);
 }
 
-export function isExpired(exp){
+module.exports.isExpired = (exp) => {
     let month = 1000 * 60 * 60 * 24 * 30;
     return Date.now() > exp + month;  // 만료시간을 임의로 한달 연장
 }

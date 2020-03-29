@@ -16,6 +16,6 @@
     "autoJobCancelation": false
   },
   "env": {
-    "dburl": "@sharelink-dburl"
+    "dburl": "@memword-dburl"
   }
 }
