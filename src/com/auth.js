@@ -16,7 +16,7 @@ const auth = async (req, res, next) => {
       logger.info(req.headers)
       throw Error('Request has no token')
     }
-    logger.verbose('token:', token)
+    // logger.verbose('token:', token)
 
     let payload
     try {
