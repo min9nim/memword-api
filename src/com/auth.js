@@ -13,6 +13,7 @@ const auth = async (req, res, next) => {
   try {
     const token = req.headers['x-access-token']
     if (!token) {
+      logger.info(req.headers)
       throw Error('Request has no token')
     }
     logger.verbose('token:', token)
