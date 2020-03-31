@@ -3,3 +3,4 @@ node_modules
 word-trans.json
 .DS_Store
 dev-start.sh
+.now
