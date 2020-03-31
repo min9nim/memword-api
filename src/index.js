@@ -13,7 +13,7 @@ var corsOptions = {
     callback(null, true)
   },
 }
-
+// cors
 server.use(cors(corsOptions))
 
 // 쿠키파서
@@ -22,7 +22,7 @@ server.use(cookieParser())
 // body 파서
 server.use(bodyParser.json())
 
-//
+// set `req.ctx`
 server.use(createContext)
 
 // 인증체크

@@ -26,11 +26,13 @@ apiRouter.get('/word/:word', function(req, res) {
 })
 
 // // 문장검색
-// apiRouter.get('/words/:words', function(req, res) {
+// apiRouter.post('/words', function(req, res) {
 //   try {
-//     translate(req.params.words).then(result => {
+//     // req.ctx.logger.debug(req.body)
+//     translate(req.body.words).then(result => {
 //       res.send({ result })
 //     })
+//     // res.send({ result: 'hello world' })
 //   } catch (e) {
 //     sendErr(res)(e)
 //   }

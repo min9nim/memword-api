@@ -12,7 +12,6 @@
   "author": "mg.song",
   "license": "MIT",
   "dependencies": {
-    "@google-cloud/translate": "^5.3.0",
     "base64-js": "^1.3.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
